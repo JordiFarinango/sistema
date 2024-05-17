@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Web</title>
+    <link href="../libs/bootstrap-5.3.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="../libs/jquery.min.js"></script>
+    <script src="../libs/bootstrap-5.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="../libs/ajax.js"></script>
+</head>
+<body class="bg-success d-flex justify-content-center align-items-center vh-100">
+    <div class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 25rem">
+        <div class="d-flex justify-content-center">
+            <img src="../assets/icono_loggin.png" alt="login-icon" style="height: 7rem"/>
+        </div>
+        <div class="text-center fs-1 fw-bold">Inicio de Sesión</div>
+        <form id="form-login" action="../controlador/loggin.php" method="POST">
+            <div class="input-group mt-4">
+                <input class="form-control bg-light" type="text" name="usuario" placeholder="Usuario"/>
+            </div>
+            <div class="input-group mt-1">
+                <input class="form-control bg-light" type="password" name="clave" placeholder="Contraseña"/>
+            </div>
+            <div class="text-danger" id="mensaje_usu"></div>
+            <div class="text-danger" id="mensaje_cla"></div>
+            <button type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" id="btn-ingresar">Ingresar</button>
+        </form>
+    </div>
+</body>
+</html>
