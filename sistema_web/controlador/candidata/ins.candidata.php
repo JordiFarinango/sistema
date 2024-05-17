@@ -12,7 +12,8 @@ $result=$objp->insertarcandidata(
     $_POST['txt_correo'],
     $_POST['txt_direccion'],
     $_POST['txt_telefono'],
-    $_POST['txt_representa']);
+    $_POST['txt_representa'],
+    $_FILES['imagen_candidata']['name']);
 
     if($result)
     {

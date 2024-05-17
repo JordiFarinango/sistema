@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>JURADOS REGISTRADOS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../libs/bootstrap-5.3.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="../../libs/jquery.min.js"></script>
+    <script src="../../libs/bootstrap-5.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="../../libs/ajax.js"></script>
+</head>
+
+<body onload="buscar_jurados('');">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-primary">JURADOS REGISTRADOS</h2>
+                <table id="tabla_jura" name="tabla_jura" class="table table-bordered">
+                    <thead class="bg-primary text-light">
+                        <tr>
+                            <th>N.</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Cedula</th>
+                            <th>Correo</th>
+                            <th>Direccion</th>
+                            <th>Celular</th>
+                            <th>Ocupación:</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

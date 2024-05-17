@@ -1,8 +1,8 @@
 <?php
 require_once("../../modelo/ws_sistema.php");
 
-$candidatas = new candidatas();
-$result = $candidatas->buscar_candidatas($_POST['valor']);
+$jurados = new usuario();
+$result = $jurados->buscar_jurados($_POST['valor']);
 
 echo "<thead class='bg-primary text-light'>
         <tr>
@@ -11,9 +11,9 @@ echo "<thead class='bg-primary text-light'>
             <th>Apellidos</th>
             <th>Cedula</th>
             <th>Correo</th>
-            <th>Celular</th>
             <th>Direccion</th>
-            <th>Representa a:</th>
+            <th>Celular</th>
+            <th>Ocupacion:</th>
             <th>Acciones</th>
         </tr>
     </thead>";
@@ -23,17 +23,17 @@ if(mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
         echo "<tr>
             <td>{$f}</td>
-            <td>{$row['nom_candidata']}</td>
-            <td>{$row['ape_candidata']}</td>
-            <td>{$row['ced_candidata']}</td>
-            <td>{$row['correo_candidata']}</td>
-            <td>{$row['cel_candidata']}</td>
-            <td>{$row['dir_candidata']}</td>
-            <td>{$row['repre_candidata']}</td>
+            <td>{$row['nom_usuario']}</td>
+            <td>{$row['ape_usuario']}</td>
+            <td>{$row['ced_usuario']}</td>
+            <td>{$row['correo_usuario']}</td>
+            <td>{$row['dire_usuario']}</td>
+            <td>{$row['cel_usuario']}</td>
+            <td>{$row['ocupa_usuario']}</td>
             
             <td>
-                <a href='mod_candidata.html'><img src='../../assets/imagenes/edit.png'></a>
-                <a href='eli_candidata.html'><img src='../../assets/imagenes/delete.png'></a>
+                <a href='mod_jurado.html'><img src='../../assets/imagenes/edit.png'></a>
+                <a href='eli_jurado.html'><img src='../../assets/imagenes/delete.png'></a>
             </td>
         </tr>";
         $f++;

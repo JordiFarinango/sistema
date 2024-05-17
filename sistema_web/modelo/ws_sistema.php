@@ -67,6 +67,38 @@ class usuario
         $result=mysqli_query($conex, $sentencia);
         return $result;
     }
+    public function buscar_jurados($apellido)
+    {
+        $conex = new DBConexion();
+        $conex = $conex->Conectar();
+        if($apellido == '')
+        {
+            $sentencia = sprintf("SELECT * FROM usuarios WHERE rol_id_re = 2");
+        }
+        else
+        {
+            $sentencia = sprintf("SELECT * FROM usuarios WHERE rol_id_re = 2 AND ape_usuario LIKE '%s'", "%".$apellido."%");
+        }
+        $result = mysqli_query($conex, $sentencia);
+        return $result;
+    }
+    
+    public function buscar_notarios($apellido)
+    {
+        $conex = new DBConexion();
+        $conex = $conex->Conectar();
+        if($apellido == '')
+        {
+            $sentencia = sprintf("SELECT * FROM usuarios WHERE rol_id_re = 3");
+        }
+        else
+        {
+            $sentencia = sprintf("SELECT * FROM usuarios WHERE rol_id_re = 3 AND ape_usuario LIKE '%s'", "%".$apellido."%");
+        }
+        $result = mysqli_query($conex, $sentencia);
+        return $result;
+    }
+
 }
 
 class roles
@@ -83,51 +115,74 @@ class roles
     }
     }
 
-class candidatas
-{
-    public $id_candidata;
-    public $nom_candidata;
-    public $ape_candidata;
-    public $ced_candidata;
-    public $correo_candidata;
-    public $cel_candidata;
-    public $dir_candidata;
-    public $repre_candidata;
-    public $img_candidata;
-
-    public function __construct()
+    class candidatas
     {
-        $this->id_candidata="";
-        $this->nom_candidata="";
-        $this->ape_candidata="";
-        $this->ced_candidata="";
-        $this->correo_candidata="";
-        $this->cel_candidata="";
-        $this->dir_candidata="";
-        $this->repre_candidata="";
-        $this->img_candidata="";
-    }
-
-    public function insertarcandidata($nom_candidata, $ape_candidata, $ced_candidata, $correo_candidata,  $repre_candidata, $img_candidata)
-    {
-        $conex = new DBConexion();
-        $conex = $conex->Conectar();
-        $sentencia=sprintf("INSERT INTO candidata (nom_candidata, ape_candidata, ced_candidata, correo_candidata,  repre_candidata, img_candidata) values ('%s', '%s', '%s', '%s', '%s', '%s')"
-        ,$conex->real_escape_string($nom_candidata),
-        $conex->real_escape_string($ape_candidata),
-        $conex->real_escape_string($ced_candidata),
-        $conex->real_escape_string($correo_candidata),
-        $conex->real_escape_string($repre_candidata),
-        $conex->real_escape_string($img_candidata));
+        public $id_candidata;
+        public $nom_candidata;
+        public $ape_candidata;
+        public $ced_candidata;
+        public $correo_candidata;
+        public $cel_candidata;
+        public $dir_candidata;
+        public $repre_candidata;
+        public $img_candidata;
     
-        $result=mysqli_query($conex, $sentencia);
-        return $result;
+        public function __construct()
+        {
+            $this->id_candidata = "";
+            $this->nom_candidata = "";
+            $this->ape_candidata = "";
+            $this->ced_candidata = "";
+            $this->correo_candidata = "";
+            $this->cel_candidata = "";
+            $this->dir_candidata = "";
+            $this->repre_candidata = "";
+            $this->img_candidata = "";
+        }
+    
+        public function insertarcandidata($nom_candidata, $ape_candidata, $ced_candidata, $correo_candidata, $cel_candidata, $dir_candidata, $repre_candidata, $img_candidata)
+        {
+            $conex = new DBConexion();
+            $conex = $conex->Conectar();
+            $sentencia = sprintf("INSERT INTO candidata (nom_candidata, ape_candidata, ced_candidata, correo_candidata, cel_candidata, dir_candidata, repre_candidata, img_candidata) values ('%s', '%s', '%s', '%s','%s', '%s', '%s', '%s')",
+                $conex->real_escape_string($nom_candidata),
+                $conex->real_escape_string($ape_candidata),
+                $conex->real_escape_string($ced_candidata),
+                $conex->real_escape_string($correo_candidata),
+                $conex->real_escape_string($cel_candidata),
+                $conex->real_escape_string($dir_candidata),
+                $conex->real_escape_string($repre_candidata),
+                $conex->real_escape_string($img_candidata)
+            );
+        
+            $result = mysqli_query($conex, $sentencia);
+            return $result;
+        }
+        
+        public function buscar_candidatas($apellido)
+        {
+            $conex = new DBConexion();
+            $conex = $conex->Conectar();
+            if ($apellido == '') {
+                $sentencia = "SELECT * FROM candidata";
+            } else {
+                $sentencia = sprintf("SELECT * FROM candidata WHERE ape_candidata LIKE '%s'", "%" . $apellido . "%");
+            }
+            $result = mysqli_query($conex, $sentencia);
+            return $result;
+        }
+
+        public function ConsultarDato($id_candidata)
+        {
+            $conex = new DBConexion();
+            $conex = $conex -> Conectar();
+            $sentencia = sprintf ("SELECT * FROM candidata WHERE id_candidata = '%s'",$conex->real_escape_string($cod_persona));
+            $result = mysqli_query($conex, $sentencia);
+            $row = mysqli_fetch_array($result);
+            return $row;
+        }
     }
-
-
-
-}
-
+    
 
 
 
