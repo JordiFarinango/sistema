@@ -46,6 +46,26 @@ class usuario
             $row = mysqli_fetch_array($result);
             return $row;
         }
+
+        public function ConsultarDatoNotario($id_usuario) {
+            $conex = new DBConexion();
+            $conex = $conex->Conectar();
+            $sentencia = sprintf(
+                "SELECT * FROM usuarios WHERE id_usuario = '%s' AND rol_id_re = 3",
+                $conex->real_escape_string($id_usuario)
+            );
+            
+            $result = mysqli_query($conex, $sentencia);
+            
+            if (!$result) {
+                // Mostrar el error si la consulta falla
+                printf("Error: %s\n", mysqli_error($conex));
+                return false;
+            }
+            
+            $row = mysqli_fetch_array($result);
+            return $row;
+        }
         
         
 
@@ -126,6 +146,26 @@ class usuario
         $result=mysqli_query($conex, $sentencia);
         return $result;
     }
+
+        //////////// EDITAR Notario
+        public function actualizarnotario($nom_usuario,$ape_usuario,$ced_usuario,$correo_usuario,$dire_usuario,$cel_usuario,$ocupa_usuario, $usu_usuario,$clave_usuario,$id_usuario ) //actualizar datos
+        {
+            $conex = new DBConexion();
+            $conex = $conex->Conectar();
+            $sentencia=sprintf("UPDATE usuarios SET nom_usuario='%s', ape_usuario='%s', ced_usuario='%s', correo_usuario='%s', dire_usuario='%s', cel_usuario='%s', ocupa_usuario='%s', usu_usuario='%s', clave_usuario='%s' WHERE id_usuario='%s'" 
+            ,$conex->real_escape_string($nom_usuario), 
+            $conex->real_escape_string($ape_usuario), 
+            $conex->real_escape_string($ced_usuario), 
+            $conex->real_escape_string($correo_usuario), 
+            $conex->real_escape_string($dire_usuario), 
+            $conex->real_escape_string($cel_usuario), 
+            $conex->real_escape_string($ocupa_usuario), 
+            $conex->real_escape_string($usu_usuario), 
+            $conex->real_escape_string($clave_usuario), 
+            $conex->real_escape_string($id_usuario)); //NUNCA OLVIDARSE DEL WHERE NI EN EL EDITAR NI ELIMINAR
+            $result=mysqli_query($conex, $sentencia);
+            return $result;
+        }
 
  
     public function buscar_notarios($apellido)
