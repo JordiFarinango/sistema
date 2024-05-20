@@ -116,3 +116,58 @@ function eliminar(codigo)
    });
    return false;
 }
+
+
+function eliminarJurado(codigo)
+{
+   $("#codigo").val(codigo);
+   var fd = new FormData();
+   fd.append('valor', codigo);
+   $.ajax({
+      type: 'POST',
+      url: '../../controlador/jurado/dato_jurado.php',
+      data:fd,
+      cache:false,
+      contentType:false,
+      processData:false
+   })
+   .done(function(data){
+      var datos = JSON.parse(data);
+      $('#txt_cedula').val(datos.cedula);
+      $('#txt_nombre').val(datos.nombre);
+      $('#txt_apellido').val(datos.apellido);
+
+   })
+   .fail(function()
+   {
+      alert ("Error al procesar la información.");
+   });
+   return false;
+}
+
+function eliminarNotario(codigo)
+{
+   $("#codigo").val(codigo);
+   var fd = new FormData();
+   fd.append('valor', codigo);
+   $.ajax({
+      type: 'POST',
+      url: '../../controlador/notario/dato_notario.php',
+      data:fd,
+      cache:false,
+      contentType:false,
+      processData:false
+   })
+   .done(function(data){
+      var datos = JSON.parse(data);
+      $('#txt_cedula').val(datos.cedula);
+      $('#txt_nombre').val(datos.nombre);
+      $('#txt_apellido').val(datos.apellido);
+
+   })
+   .fail(function()
+   {
+      alert ("Error al procesar la información.");
+   });
+   return false;
+}
