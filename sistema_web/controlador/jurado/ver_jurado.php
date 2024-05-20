@@ -14,7 +14,8 @@ echo "<thead class='bg-primary text-light'>
             <th>Direccion</th>
             <th>Celular</th>
             <th>Ocupacion:</th>
-            <th>Acciones</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
     </thead>";
 
@@ -32,8 +33,9 @@ if(mysqli_num_rows($result) > 0) {
             <td>{$row['ocupa_usuario']}</td>
             
             <td>
-                <a href='mod_jurado.html'><img src='../../assets/imagenes/edit.png'></a>
-                <a href='eli_jurado.html'><img src='../../assets/imagenes/delete.png'></a>
+            <a href='mod_jurado.php?valor=".$row['id_usuario']."'><img src='../../assets/imagenes/edit.png'></a>
+            <td><img src='../../assets/imagenes/delete.png' onclick='eliminarjurado(".$row['id_usuario'].")' data-bs-toggle='modal' data-bs-target='#exampleModal'></td>
+            </td>
             </td>
         </tr>";
         $f++;
