@@ -11,10 +11,14 @@
 </head>
 
 <body onload="buscar_candidatas('');">
+    
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-primary">CANDIDATAS REGISTRADAS</h2>
+                <h2 class="text-danger">CANDIDATAS REGISTRADAS</h2>
+                <div class="d-flex justify-content-end mb-3">
+                    <a href="../administrador/administrador.html" class="btn btn-secondary me-2">Regresar</a>
+                </div>
                 <table id="tabla_candi" name="tabla_candi" class="table table-bordered">
                     <thead class="bg-primary text-light">
                         <tr>
@@ -26,8 +30,9 @@
                             <th>Celular</th>
                             <th>Direccion</th>
                             <th>Representa a:</th>
-                            <th>Acciones</th>
-                        </tr>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                            </tr>
                     </thead>
                     <tbody>
 
@@ -38,3 +43,46 @@
     </div>
 </body>
 </html>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-light">  
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="../../controlador/candidata/eli_candidata.php" method="post">
+            <input type="text" id="codigo" name="codigo">
+            <div class="container">
+                <div class="row">
+                    <label><b>Cedula: </b></label> <input type="text" id="txt_cedula" name="txt_cedula" class="form-control">
+                </div>
+
+                <div class="row">
+                    <label><b>Nombre: </b></label> <input type="text" id="txt_nombre" name="txt_nombre" class="form-control">
+                </div>
+
+                <div class="row">
+                    <label><b>Apellido: </b></label> <input type="text" id="txt_apellido" name="txt_apellido" class="form-control">
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-12 text-center">
+                        <span class="text-danger text-center h3">¿Desea eliminar el registro?</span>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <span class="col-12 text-center"></span>
+                    <button type="submit" id="btn_eliminar" name="btn_eliminar" class="btn btn-danger text-light">Eliminar</button>
+                </div>
+            </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -89,3 +89,30 @@ function buscar_notarios(apellidos) {
    return false;
 }
 
+
+function eliminar(codigo)
+{
+   $("#codigo").val(codigo);
+   var fd = new FormData();
+   fd.append('valor', codigo);
+   $.ajax({
+      type: 'POST',
+      url: '../../controlador/candidata/dato_candidata.php',
+      data:fd,
+      cache:false,
+      contentType:false,
+      processData:false
+   })
+   .done(function(data){
+      var datos = JSON.parse(data);
+      $('#txt_cedula').val(datos.cedula);
+      $('#txt_nombre').val(datos.nombre);
+      $('#txt_apellido').val(datos.apellido);
+
+   })
+   .fail(function()
+   {
+      alert ("Error al procesar la información.");
+   });
+   return false;
+}

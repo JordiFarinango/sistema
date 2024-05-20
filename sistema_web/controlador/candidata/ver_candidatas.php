@@ -4,7 +4,8 @@ require_once("../../modelo/ws_sistema.php");
 $candidatas = new candidatas();
 $result = $candidatas->buscar_candidatas($_POST['valor']);
 
-echo "<thead class='bg-primary text-light'>
+echo " <table id='tabla_candi' name='tabla_candi' class='table table-bordered'>
+        <thead class='bg-primary text-light'>
         <tr>
             <th>N.</th>
             <th>Nombres</th>
@@ -14,7 +15,8 @@ echo "<thead class='bg-primary text-light'>
             <th>Celular</th>
             <th>Direccion</th>
             <th>Representa a:</th>
-            <th>Acciones</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
     </thead>";
 
@@ -32,13 +34,15 @@ if(mysqli_num_rows($result) > 0) {
             <td>{$row['repre_candidata']}</td>
             
             <td>
-                <a href='mod_candidata.html'><img src='../../assets/imagenes/edit.png'></a>
-                <a href='eli_candidata.html'><img src='../../assets/imagenes/delete.png'></a>
-            </td>
+                <a href='mod_candidata.php?valor=".$row['id_candidata']."'><img src='../../assets/imagenes/edit.png'></a>
+                <td><img src='../../assets/imagenes/delete.png' onclick='eliminar(".$row['id_candidata'].")' data-bs-toggle='modal' data-bs-target='#exampleModal'></td>
+                </td>
         </tr>";
         $f++;
     }     
-} else {
+} 
+else 
+{
     echo "<tr><td colspan='9' class='bg-danger text-light text-center'>No existen registros</td></tr>";
 }
 
