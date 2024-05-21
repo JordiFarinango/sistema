@@ -1,15 +1,36 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>Jurado</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="../libs/bootstrap-5.3.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"></script>
-        <script src="../libs/bootstrap-5.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-        <script src="../libs/jquery.min.js"></script>
-        <script src="../libs/ajax.js"></script>
-    </head>
-    <body>
-        <h2>JURADO</h2>
-    </body>
-    </html>
+<head>
+    <title>Jurado</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../libs/bootstrap-5.3.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"></script>
+    <script src="../../libs/bootstrap-5.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="../../libs/jquery.min.js"></script>
+    <script src="../../libs/ajax.js"></script>
+</head>
+<body class="container" onload="buscar_candidatasvotar('');">
+    <div>
+        <h2 class="text-center">JURADO</h2>
+        <h2>SELECCIONE UNA CANDIDATA PARA CALIFICAR</h2>
+    </div>      
+    <div class="d-flex justify-content-end mb-3">
+        <a href="../loggin.html" class="btn btn-danger me-2">Cerrar Sesión</a>
+    </div>
+
+    <table class="table table-bordered">
+        <thead class="bg-primary text-light">
+            <tr>
+                <th>N.</th>
+                <th>Imagen</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Votar</th>
+            </tr>
+        </thead>
+        <tbody id="tabla_candire">
+            <!-- Las filas se insertarán aquí -->
+        </tbody>
+    </table>
+</body>
+</html>

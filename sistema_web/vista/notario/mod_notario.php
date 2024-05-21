@@ -19,11 +19,14 @@ $row = $objp->ConsultarDatoNotario($_GET['valor']);
     </head>
 
 
-    <body>
+    <body class="container">
         <form action="../../controlador/notario/act_notario.php" method="post">
-            <input type="text" id="txt_idnotarios" name="txt_idnotarios" value="<?php echo $row['id_usuario'];?>"></input> <!-- hidden es para ocultar esas cosas -->
+            <input hidden type="text" id="txt_idnotarios" name="txt_idnotarios" value="<?php echo $row['id_usuario'];?>"></input> <!-- hidden es para ocultar esas cosas -->
         <div>
             <h2 class="text-primary">Actualizar Jurado</h2>
+        </div>
+        <div class="d-flex justify-content-end mb-3">
+            <a href="ver_notario.html" class="btn btn-primary">Regresar</a>
         </div>
         <div class="container">
         <div class="form-group row">

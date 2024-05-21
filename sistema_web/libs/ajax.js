@@ -171,3 +171,27 @@ function eliminarnotario(codigo)
    });
    return false;
 }
+
+
+
+// Candidatas para que el jurado vote
+
+function buscar_candidatasvotar(apellidos) {
+   var fd = new FormData();
+   fd.append('valor', apellidos);
+   $.ajax({
+       type: 'POST',
+       url: '../../controlador/jurado/votar_candidatas.php',
+       data: fd,
+       cache: false,
+       contentType: false,
+       processData: false
+   })
+   .done(function(data) {
+       $("#tabla_candire").html(data);
+   })
+   .fail(function() {
+       alert("Error al procesar información");
+   });
+   return false;
+}

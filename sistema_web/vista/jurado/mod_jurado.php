@@ -19,11 +19,14 @@ $row = $objp->ConsultarDato($_GET['valor']);
     </head>
 
 
-    <body>
+    <body class="container">
         <form action="../../controlador/jurado/act_jurado.php" method="post">
-            <input type="text" id="txt_idjurados" name="txt_idjurados" value="<?php echo $row['id_usuario'];?>"></input> <!-- hidden es para ocultar esas cosas -->
+            <input hidden type="text" id="txt_idjurados" name="txt_idjurados" value="<?php echo $row['id_usuario'];?>"></input> <!-- hidden es para ocultar esas cosas -->
         <div>
             <h2 class="text-primary">Actualizar Jurado</h2>
+        </div>
+        <div class="d-flex justify-content-end mb-3">
+            <a href="ver_jurado.html" class="btn btn-primary">Regresar</a>
         </div>
         <div class="container">
         <div class="form-group row">
