@@ -4,7 +4,7 @@
     <title>Jurado</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../../libs/bootstrap-5.3.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"></script>
+    <link href="../../libs/bootstrap-5.3.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="../../libs/bootstrap-5.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="../../libs/jquery.min.js"></script>
     <script src="../../libs/ajax.js"></script>
@@ -29,8 +29,30 @@
             </tr>
         </thead>
         <tbody id="tabla_candire">
-            <!-- Las filas se insertarán aquí -->
+
         </tbody>
     </table>
+
+    <script>
+        function buscar_candidatasvotar(apellidos) {
+            var fd = new FormData();
+            fd.append('valor', apellidos);
+            $.ajax({
+                type: 'POST',
+                url: '../../controlador/jurado/votar_candidatas.php',
+                data: fd,
+                cache: false,
+                contentType: false,
+                processData: false
+            })
+            .done(function(data) {
+                $("#tabla_candire").html(data);
+            })
+            .fail(function() {
+                alert("Error al procesar información");
+            });
+            return false;
+        }
+    </script>
 </body>
 </html>
