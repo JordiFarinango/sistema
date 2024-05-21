@@ -127,6 +127,26 @@ class usuario
         return $result;
     }
 
+    public function eliminarjurado($id_usuario) //eliminar datos
+    {
+        $conex = new DBConexion();
+        $conex = $conex->Conectar();
+        $sentencia=sprintf("DELETE FROM usuarios WHERE id_usuario='%s'", $conex->real_escape_string($id_usuario)); //NUNCA OLVIDARSE DEL WHERE NI EN EL EDITAR NI ELIMINAR
+        $result=mysqli_query($conex, $sentencia);
+        return $result;
+    }
+
+
+    public function eliminarnotario($id_usuario) //eliminar datos
+    {
+        $conex = new DBConexion();
+        $conex = $conex->Conectar();
+        $sentencia=sprintf("DELETE FROM usuarios WHERE id_usuario='%s'", $conex->real_escape_string($id_usuario)); //NUNCA OLVIDARSE DEL WHERE NI EN EL EDITAR NI ELIMINAR
+        $result=mysqli_query($conex, $sentencia);
+        return $result;
+    }
+
+
     //////////// EDITAR JURADO
     public function actualizarjurado($nom_usuario,$ape_usuario,$ced_usuario,$correo_usuario,$dire_usuario,$cel_usuario,$ocupa_usuario, $usu_usuario,$clave_usuario,$id_usuario ) //actualizar datos
     {
@@ -146,6 +166,7 @@ class usuario
         $result=mysqli_query($conex, $sentencia);
         return $result;
     }
+
 
         //////////// EDITAR Notario
         public function actualizarnotario($nom_usuario,$ape_usuario,$ced_usuario,$correo_usuario,$dire_usuario,$cel_usuario,$ocupa_usuario, $usu_usuario,$clave_usuario,$id_usuario ) //actualizar datos

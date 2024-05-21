@@ -34,7 +34,7 @@ if(mysqli_num_rows($result) > 0) {
             
             <td>
             <a href='mod_jurado.php?valor=".$row['id_usuario']."'><img src='../../assets/imagenes/edit.png'></a>
-            <td><img src='../../assets/imagenes/delete.png' onclick='eliminarjurado(".$row['id_usuario'].")' data-bs-toggle='modal' data-bs-target='#exampleModal'></td>
+            <td><img src='../../assets/imagenes/delete.png' onclick='eliminarjurado(".$row['id_usuario'].")' data-bs-toggle='modal' data-bs-target='#eliminarmodal'></td>
             </td>
             </td>
         </tr>";

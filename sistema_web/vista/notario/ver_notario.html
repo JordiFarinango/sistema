@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>NOTARIOS REGISTRADOS</title>
+    <title>JURADOS REGISTRADOS</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../libs/bootstrap-5.3.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-danger">NOTARIOS REGISTRADOS</h2>
+                <h2 class="text-danger">JURADOS REGISTRADOS</h2>
                 <div class="d-flex justify-content-end mb-3">
                     <a href="../administrador/administrador.html" class="btn btn-secondary me-2">Regresar</a>
                 </div>
@@ -42,8 +42,7 @@
 </html>
 
 
-
-<div class="modal fade" id="exampleModalnotario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="eliminarmodald" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-danger text-light">  
@@ -54,6 +53,7 @@
             <form action="../../controlador/notario/eli_notario.php" method="post">
             <input type="text" id="codigo" name="codigo" hidden>
             <div class="container">
+                <!--
                 <div class="row">
                     <label><b>Cedula: </b></label> <input type="text" id="txt_cedula" name="txt_cedula" class="form-control">
                 </div>
@@ -64,8 +64,8 @@
 
                 <div class="row">
                     <label><b>Apellido: </b></label> <input type="text" id="txt_apellido" name="txt_apellido" class="form-control">
-                </div>
-
+                </div> 
+            -->
                 <div class="row mt-2">
                     <div class="col-12 text-center">
                         <span class="text-danger text-center h3">¿Desea eliminar el registro?</span>

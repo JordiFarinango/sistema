@@ -5,7 +5,7 @@
 
 require_once('../../modelo/ws_sistema.php');
 $objp=new usuario();
-$result=$objp->eliminarJurado($_POST['codigo']);
+$result=$objp->eliminarjurado($_POST['codigo']);
 
     if($result)
     {

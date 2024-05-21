@@ -17,10 +17,10 @@
         <div class="text-center fs-1 fw-bold">Inicio de Sesión</div>
         <form id="form-login" action="../controlador/loggin.php" method="POST">
             <div class="input-group mt-4">
-                <input class="form-control bg-light" type="text" name="usuario" placeholder="Usuario"/>
+                <input class="form-control bg-light" type="text" name="usuario" placeholder="Usuario" required/>
             </div>
             <div class="input-group mt-1">
-                <input class="form-control bg-light" type="password" name="clave" placeholder="Contraseña"/>
+                <input class="form-control bg-light" type="password" name="clave" placeholder="Contraseña" required/>
             </div>
             <div class="text-danger" id="mensaje_usu"></div>
             <div class="text-danger" id="mensaje_cla"></div>

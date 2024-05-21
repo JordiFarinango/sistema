@@ -5,12 +5,12 @@
 
 require_once('../../modelo/ws_sistema.php');
 $objp=new usuario();
-$result=$objp->eliminarNotario($_POST['codigo']);
+$result=$objp->eliminarnotario($_POST['codigo']);
 
     if($result)
     {
         echo '<script>jQuery(function(){swal({
-            title:"Eliminar Notario", text:"Registro Eliminado", type:"success", confirmButtonText:"Aceptar"
+            title:"Eliminar Notario", text:"Notario Eliminado", type:"success", confirmButtonText:"Aceptar"
         }, function(){location.href="../../vista/notario/ver_notario.html";});});</script>';
     }
     else

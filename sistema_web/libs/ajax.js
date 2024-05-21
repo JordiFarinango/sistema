@@ -118,7 +118,7 @@ function eliminar(codigo)
 }
 
 
-function eliminarJurado(codigo)
+function eliminarjurado(codigo)
 {
    $("#codigo").val(codigo);
    var fd = new FormData();
@@ -145,7 +145,7 @@ function eliminarJurado(codigo)
    return false;
 }
 
-function eliminarNotario(codigo)
+function eliminarnotario(codigo)
 {
    $("#codigo").val(codigo);
    var fd = new FormData();

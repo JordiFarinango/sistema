@@ -1,8 +1,8 @@
 <?php
 require_once("../../modelo/ws_sistema.php");
 
-$nonotario = new usuario();
-$result = $nonotario->buscar_notarios($_POST['valor']);
+$jurados = new usuario();
+$result = $jurados->buscar_notarios($_POST['valor']);
 
 echo "<thead class='bg-primary text-light'>
         <tr>
@@ -34,7 +34,7 @@ if(mysqli_num_rows($result) > 0) {
             
             <td>
             <a href='mod_notario.php?valor=".$row['id_usuario']."'><img src='../../assets/imagenes/edit.png'></a>
-            <td><img src='../../assets/imagenes/delete.png' onclick='eliminarnotario(".$row['id_usuario'].")' data-bs-toggle='modal' data-bs-target='#exampleModal'></td>
+            <td><img src='../../assets/imagenes/delete.png' onclick='eliminarnotario(".$row['id_usuario'].")' data-bs-toggle='modal' data-bs-target='#eliminarmodald'></td>
             </td>
             </td>
         </tr>";
