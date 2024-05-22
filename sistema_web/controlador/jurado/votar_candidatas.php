@@ -13,7 +13,7 @@ if(mysqli_num_rows($result) > 0) {
             <td>{$row['nom_candidata']}</td>
             <td>{$row['ape_candidata']}</td>
             <td>
-                <a href='votar_candidata.php?valor=".$row['id_candidata']."'><img src='../../assets/imagenes/votar.png' alt='Votar'></a>
+                <a href='votar_candidataaa.php?valor=".$row['id_candidata']."'><img src='../../assets/imagenes/votar.png' alt='Votar'></a>
             </td>
         </tr>";
         $f++;

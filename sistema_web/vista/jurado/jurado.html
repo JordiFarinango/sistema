@@ -10,11 +10,13 @@
     <script src="../../libs/ajax.js"></script>
 </head>
 <body class="container" onload="buscar_candidatasvotar('');">
+    
     <div>
         <h2 class="text-center">JURADO</h2>
         <h2>SELECCIONE UNA CANDIDATA PARA CALIFICAR</h2>
     </div>      
-    <div class="d-flex justify-content-end mb-3">
+
+    <div class="d-flex content-end mb-3">
         <a href="../loggin.html" class="btn btn-danger me-2">Cerrar Sesión</a>
     </div>
 
@@ -22,37 +24,20 @@
         <thead class="bg-primary text-light">
             <tr>
                 <th>N.</th>
-                <th>Imagen</th>
+                <th>Candidata</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
                 <th>Votar</th>
             </tr>
         </thead>
         <tbody id="tabla_candire">
-
+      
         </tbody>
     </table>
+    
 
     <script>
-        function buscar_candidatasvotar(apellidos) {
-            var fd = new FormData();
-            fd.append('valor', apellidos);
-            $.ajax({
-                type: 'POST',
-                url: '../../controlador/jurado/votar_candidatas.php',
-                data: fd,
-                cache: false,
-                contentType: false,
-                processData: false
-            })
-            .done(function(data) {
-                $("#tabla_candire").html(data);
-            })
-            .fail(function() {
-                alert("Error al procesar información");
-            });
-            return false;
-        }
+
     </script>
 </body>
 </html>

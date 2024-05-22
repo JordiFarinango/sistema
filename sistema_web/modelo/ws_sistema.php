@@ -207,19 +207,7 @@ class usuario
 
 }
 
-class roles
-{
-    public $id_rol;
-    public $nom_rol;
-    public $descri_rol;
 
-    public function __construct()
-    {
-        $this->id_rol = "";
-        $this->nom_rol = "";
-        $this->descri_rol = "";
-    }
-    }
 
     class candidatas
     {
@@ -319,8 +307,86 @@ class roles
                 return $result;
             }
     }
+
+    class roles
+{
+    public $id_rol;
+    public $nom_rol;
+    public $descri_rol;
+
+    public function __construct()
+    {
+        $this->id_rol = "";
+        $this->nom_rol = "";
+        $this->descri_rol = "";
+    }
+    }
     
     
+    class calificacion
+    {
+        public $id_calificacion;
+        public $id_candidata_re;
+        public $id_parametro_re;
+        public $id_usuario_re;
+        public $calificacion;
+
+    
+        public function __construct()
+        {
+            $this->id_calificacion = "";
+            $this->id_candidata_re = "";
+            $this->id_parametro_re = "";
+            $this->id_usuario_re = "";
+            $this->calificacion = "";
+
+        }
+        }
+
+
+    class categoria
+        {
+            public $id_categoria;
+            public $nom_categoria;
+
+            public function __construct()
+            {
+                $this->id_categoria = "";
+                $this->nom_categoria = "";
+            }
+        }
+
+        
+
+    class parametros
+    {
+        public $id_parametros;
+        public $nom_parametro;
+        public $id_categoria_re;
+
+        public function __construct()
+        {
+            $this->id_parametros = "";
+            $this->nom_parametro = "";
+            $this->id_categoria_re = "";
+
+        }
+
+
+        public function buscar_parametros($parametro)
+        {
+            $conex = new DBConexion();
+            $conex = $conex->Conectar();
+            if ($parametros == '') {
+                $sentencia = "SELECT * FROM parametros";
+            } else {
+                $sentencia = sprintf("SELECT * FROM parametros WHERE nom_parametro LIKE '%s'", "%" . $parametros . "%");
+            }
+            $result = mysqli_query($conex, $sentencia);
+            return $result;
+        }
+
+    }
 
 
 
