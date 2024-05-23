@@ -19,20 +19,25 @@
                     <div class="d-flex justify-content-end mb-3">
                         <a href="jurado.html" class="btn btn-secondary me-2">Regresar</a>
                     </div>
-                    <table id="tabla_parametros" name="tabla_parametros" class="table table-bordered">
-                        <thead class="bg-primary text-light">
-                            <tr>
-                                <th>N.</th>
-                                <th>Coreografía</th>
-                                <th>Traje Típico</th>
-                                <th>Traje de Gala</th>
-                                <th>Respuesta a la pregunta</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabla_parametros_cuerpo">
-                            <!-- Las filas serán agregadas aquí por AJAX -->
-                        </tbody>
-                    </table>
+                    <form id="form_notas" onsubmit="return enviar_notas();">
+                        <table id="tabla_parametros" name="tabla_parametros" class="table table-bordered">
+                            <thead class="bg-primary text-light">
+                                <tr>
+                                    <th>N.</th>
+                                    <th>Coreografía</th>
+                                    <th>Traje Típico</th>
+                                    <th>Traje de Gala</th>
+                                    <th>Respuesta a la pregunta</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla_parametros_cuerpo">
+                                <!-- Las filas serán agregadas aquí por AJAX -->
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Guardar Notas</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

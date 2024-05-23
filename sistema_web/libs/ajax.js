@@ -209,13 +209,32 @@ function buscar_parametros(parametros) {
        processData: false
    })
    .done(function(data) {
-       $("#tabla_parametros").html(data);
+       $("#tabla_parametros_cuerpo").html(data);
    })
    .fail(function() {
        alert("Error al procesar información");
    });
    return false;
 }
+
+function enviar_notas() {
+    var form_data = $("#form_notas").serialize();
+    $.ajax({
+        type: 'POST',
+        url: '../../controlador/jurado/guardar_notas.php',
+        data: form_data,
+        cache: false,
+        success: function(response) {
+            alert(response);
+        },
+        error: function() {
+            alert("Error al guardar las notas");
+        }
+    });
+    return false;
+}
+
+
 
 function buscar_candidatasvotar(apellidos) {
    var fd = new FormData();

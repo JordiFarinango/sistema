@@ -372,21 +372,22 @@ class usuario
 
         }
 
-
-        public function buscar_parametros($parametro)
+        public function buscar_parametros($parametros)
         {
             $conex = new DBConexion();
             $conex = $conex->Conectar();
             if ($parametros == '') {
-                $sentencia = "SELECT * FROM parametros";
+                $sentencia = "SELECT nom_parametro, id_categoria_re FROM parametros";
             } else {
-                $sentencia = sprintf("SELECT * FROM parametros WHERE nom_parametro LIKE '%s'", "%" . $parametros . "%");
+                $sentencia = sprintf("SELECT nom_parametro, id_categoria_re FROM parametros WHERE nom_parametro LIKE '%s'", "%" . $parametros . "%");
             }
             $result = mysqli_query($conex, $sentencia);
             return $result;
         }
+        
 
-    }
+
+}        
 
 
 
