@@ -6,9 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $traje_tipico = $_POST['traje_tipico'];
     $traje_gala = $_POST['traje_gala'];
     $respuesta_pregunta = $_POST['respuesta_pregunta'];
-    $id_jurado = 1; // Aquí deberías obtener el id del jurado autenticado
-    $id_candidata = 1; // Aquí deberías obtener el id de la candidata que se está calificando
-
+    $id_jurado = 1; 
+    $id_candidata = 1; 
     $conexion = new DBConexion();
     $conex = $conexion->Conectar();
 
@@ -16,11 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conex->prepare("INSERT INTO calificacion (id_usuario_re, id_candidata_re, id_parametro_re, calificacion) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("iiii", $id_jurado, $id_candidata, $id_parametro, $nota);
 
-        $id_parametro = 1; // Aquí debes asignar el id del parámetro correspondiente
+        $id_parametro = 1; 
         $nota = $coreografia[$i];
         $stmt->execute();
 
-        $id_parametro = 2; // Cambia el id del parámetro según corresponda
+        $id_parametro = 2; 
         $nota = $traje_tipico[$i];
         $stmt->execute();
 

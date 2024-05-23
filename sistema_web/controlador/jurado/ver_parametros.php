@@ -4,7 +4,6 @@ require_once("../../modelo/ws_sistema.php");
 $parametros = new parametros();
 $result = $parametros->buscar_parametros($_POST['parametros']);
 
-// Mapeo de id_categoria_re a nombres de categorías
 $categoria_map = [
     1 => 'Coreografía',
     2 => 'Traje Típico',
