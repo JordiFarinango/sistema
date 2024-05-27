@@ -1,15 +1,35 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>Notario</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="../libs/bootstrap-5.3.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"></script>
-        <script src="../libs/bootstrap-5.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-        <script src="../libs/jquery.min.js"></script>
-        <script src="../libs/ajax.js"></script>
-    </head>
-    <body>
-        <h2>NOTARIO PÚBLICO</h2>
-    </body>
-    </html>
+<head>
+    <title>Notario</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../libs/bootstrap-5.3.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="../../libs/jquery.min.js"></script>
+    <script src="../../libs/bootstrap-5.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="../../libs/ajax.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">NOTARIO PÚBLICO</h2>
+        <div class="text-end mt-3">
+            <button onclick="descargarReporte()" class="btn btn-primary">Descargar Reporte en PDF</button>
+        </div>
+        <script>
+            function descargarReporte() {
+                window.location.href = '../../controlador/notario/generar_reporte.php';
+            }
+        </script>
+
+        <div class="text-end mt-3">
+            <button class="btn btn-success" onclick="generarReporteGanadoras()">Descargar Reporte de Ganadoras</button>
+        </div>
+        <div id="contenedor_calificaciones">
+            <!-- Las tablas serán agregadas aquí por AJAX -->
+        </div>
+    </div>
+</body>
+</html>
+
+
+

@@ -10,8 +10,7 @@
         <script src="../../libs/bootstrap-5.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
         <script src="../../libs/ajax.js"></script>
     </head>
-    <body onload="buscar_parametros('');">
-
+    <body onload="buscar_parametros();">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -19,7 +18,8 @@
                     <div class="d-flex justify-content-end mb-3">
                         <a href="jurado.html" class="btn btn-secondary me-2">Regresar</a>
                     </div>
-                    <form id="form_notas" onsubmit="return enviar_notas();">
+                    <form id="form_notas">
+                        <input type="hidden" name="id_candidata" id="id_candidata" value="<?php echo $_GET['valor']; ?>">
                         <table id="tabla_parametros" name="tabla_parametros" class="table table-bordered">
                             <thead class="bg-primary text-light">
                                 <tr>
@@ -34,9 +34,6 @@
                                 <!-- Las filas serán agregadas aquí por AJAX -->
                             </tbody>
                         </table>
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary">Guardar Notas</button>
-                        </div>
                     </form>
                 </div>
             </div>

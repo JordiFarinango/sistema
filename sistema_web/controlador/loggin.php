@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = mysqli_query($conexion, $consulta);
 
     if ($fila = mysqli_fetch_assoc($resultado)) {
+        $_SESSION["id_usuario"] = $fila["id_usuario"];
         $_SESSION["rol"] = $fila["rol_id_re"];
         switch ($_SESSION["rol"]) {
             case 1: 

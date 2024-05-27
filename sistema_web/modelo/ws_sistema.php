@@ -341,6 +341,42 @@ class usuario
             $this->calificacion = "";
 
         }
+
+        public function obtener_calificaciones($id_usuario, $id_candidata) {
+            $conex = new DBConexion();
+            $conex = $conex->Conectar();
+            $sentencia = sprintf("SELECT * FROM calificacion WHERE id_usuario_re = '%s' AND id_candidata_re = '%s'", $conex->real_escape_string($id_usuario), $conex->real_escape_string($id_candidata));
+            $result = mysqli_query($conex, $sentencia);
+            return $result;
+        }
+
+        public function obtener_todas_calificaciones() {
+            $conex = new DBConexion();
+            $conex = $conex->Conectar();
+            $sentencia = "
+                SELECT 
+                    c.id_candidata, 
+                    c.nom_candidata, 
+                    c.ape_candidata, 
+                    u.nom_usuario, 
+                    u.ape_usuario, 
+                    cat.nom_categoria, 
+                    p.nom_parametro, 
+                    cal.calificacion
+                FROM 
+                    calificacion cal
+                JOIN 
+                    candidata c ON cal.id_candidata_re = c.id_candidata
+                JOIN 
+                    usuarios u ON cal.id_usuario_re = u.id_usuario
+                JOIN 
+                    parametros p ON cal.id_parametro_re = p.id_parametros
+                JOIN 
+                    categoria cat ON p.id_categoria_re = cat.id_categoria
+            ";
+            $result = mysqli_query($conex, $sentencia);
+            return $result;
+        }
         }
 
 
@@ -372,18 +408,18 @@ class usuario
 
         }
 
-        public function buscar_parametros($parametros)
-        {
+        public function buscar_parametros($parametros) {
             $conex = new DBConexion();
             $conex = $conex->Conectar();
             if ($parametros == '') {
-                $sentencia = "SELECT nom_parametro, id_categoria_re FROM parametros";
+                $sentencia = "SELECT id_parametros, nom_parametro, id_categoria_re FROM parametros";
             } else {
-                $sentencia = sprintf("SELECT nom_parametro, id_categoria_re FROM parametros WHERE nom_parametro LIKE '%s'", "%" . $parametros . "%");
+                $sentencia = sprintf("SELECT id_parametros, nom_parametro, id_categoria_re FROM parametros WHERE nom_parametro LIKE '%s'", "%" . $parametros . "%");
             }
             $result = mysqli_query($conex, $sentencia);
             return $result;
         }
+        
         
 
 

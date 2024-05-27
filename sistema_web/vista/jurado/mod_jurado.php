@@ -62,7 +62,7 @@ $row = $objp->ConsultarDato($_GET['valor']);
                 <input type="text" class="form-control col-4" name="txt_usuario" id="txt_usuario" value="<?php echo $row['usu_usuario'];?>">
             </div>
             <div class="form-group row">
-                <label class="col-5">Usuario</label>
+                <label class="col-5">Clave</label>
                 <input type="text" class="form-control col-4" name="txt_clave" id="txt_clave" value="<?php echo $row['clave_usuario'];?>">
             </div>
 
