@@ -1,4 +1,3 @@
-function contar(usuario)
 
 {
    var l=0;
@@ -232,26 +231,4 @@ function enviar_notas() {
         }
     });
     return false;
-}
-
-
-
-function buscar_candidatasvotar(apellidos) {
-   var fd = new FormData();
-   fd.append('valor', apellidos);
-   $.ajax({
-       type: 'POST',
-       url: '../../controlador/jurado/votar_candidatas.php',
-       data: fd,
-       cache: false,
-       contentType: false,
-       processData: false
-   })
-   .done(function(data) {
-       $("#tabla_candire").html(data);
-   })
-   .fail(function() {
-       alert("Error al procesar información");
-   });
-   return false;
 }
